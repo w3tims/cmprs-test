@@ -1,0 +1,113 @@
+$cell-color-empty: blue;
+$cell-color-target: yellow;
+$cell-color-clicked: green;
+$cell-color-failed: red;
+
+.outer-container {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.inner-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.start-game-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 144px;
+}
+
+.board {
+  border: 2px solid black;
+  padding: 2rem;
+  margin: auto;
+}
+
+.cells-container {
+  margin: -2px;
+}
+
+.cell-container {
+  border: 2px solid black;
+  width: 2rem;
+  height: 2rem;
+  margin: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.start-button, #turn-time-input, .turn-time-input-label {
+  margin-bottom: 0.5rem;
+}
+
+.cells-container {
+  margin-bottom: 1rem;
+}
+
+.score {
+  font-size: 20px;
+}
+
+.start-button, #turn-time-input {
+  width: 100%;
+  font-size: 14px;
+  height: 2rem;
+  border-width: 2px;
+  border-style: solid;
+}
+
+.start-button {
+  cursor: pointer;
+  border-color: black;
+}
+
+.turn-time-input-label {
+  font-size: 12px;
+}
+
+#turn-time-input {
+  -moz-appearance: textfield;
+  text-align: center;
+  box-sizing: border-box;
+  border-color: lightgrey;
+}
+#turn-time-input::-webkit-outer-spin-button,
+#turn-time-input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.cell {
+  width: 100%;
+  height: 100%;
+
+  &.empty {
+    background: $cell-color-empty;
+  }
+  &.target {
+    background: $cell-color-target;
+  }
+  &.clicked {
+    background: $cell-color-clicked;
+  }
+  &.failed {
+    background: $cell-color-failed;
+  }
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+}
