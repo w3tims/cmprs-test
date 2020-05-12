@@ -5,6 +5,7 @@ import {filter, map, startWith, takeUntil, tap} from 'rxjs/operators';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {gameRules} from './game-rules';
 import {Player} from '../types/player.enum';
+import {ModalService} from './modal/modal.service';
 
 @Component({
   selector: 'app-root',
@@ -62,9 +63,12 @@ export class AppComponent implements OnDestroy {
           return Player.CPU;
         }
       }),
+    tap((winner) => this.modalService.openResultModal(winner)),
   );
 
-  constructor() {}
+  constructor(
+    private modalService: ModalService,
+  ) {}
 
   startGameFormSubmit() {
     if (this.startGameForm.invalid) { return; }
@@ -128,7 +132,7 @@ export class AppComponent implements OnDestroy {
         if (currentValue === CellState.EMPTY) {
           return [ ...indexes, currentIndex];
         } else {
-          return indexes; // not necessary?
+          return indexes;
         }
       }, []);
     const targetCellIndex = this.getRandomArrayElement(emptyCellsIndexes);
