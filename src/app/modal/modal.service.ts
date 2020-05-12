@@ -15,8 +15,8 @@ export class ModalService {
 
   openResultModal(winner: Player) {
     this.dialog.open(ModalComponent, {data: {
-      title: winner === Player.USER ? 'Victory' : 'Defeat',
-      message: `winner is: ${winner}`,
+      title: winner === Player.USER ? 'Победа' : 'Поражение',
+      message: `победитель: ${winner === Player.USER ? 'Пользователь' : 'Компьютер'}`,
     }});
   }
 }
